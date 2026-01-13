@@ -1,24 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog de Café</title>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Origen & Grano | Blog de Café Especialidad</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Delius&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Delius&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primario: #4b3621;
+            --secundario: #c6a664;
+            --oscuro: #1a1a1a;
+            --claro: #f4f1ea;
+            --blanco: #ffffff;
+            --gris: #757575;
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--claro);
+            color: var(--oscuro);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--blanco);
+            padding: 2rem 0;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            color: var(--primario);
+            margin-bottom: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secundario);
+        }
+
+        nav {
+            margin-top: 1.5rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        nav a {
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gris);
+        }
+
+        nav a:hover {
+            color: var(--primario);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Grid de Contenido */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Artículos */
+        .post {
+            background: var(--blanco);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .post-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .post-body {
+            padding: 30px;
+        }
+
+        .category {
+            color: var(--secundario);
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .post-title {
+            margin: 10px 0;
+            font-size: 1.8rem;
+        }
+
+        .post-meta {
+            font-size: 0.85rem;
+            color: var(--gris);
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primario);
+            color: var(--blanco);
+            padding: 10px 25px;
+            margin-top: 20px;
+            border-radius: 2px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: var(--secundario);
+        }
+
+        /* Sidebar */
+        aside {
+            background: var(--blanco);
+            padding: 25px;
+            height: fit-content;
+        }
+
+        .widget {
+            margin-bottom: 30px;
+        }
+
+        .widget h3 {
+            border-bottom: 2px solid var(--secundario);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .course-card {
+            background: var(--claro);
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--oscuro);
+            color: var(--blanco);
+            padding: 50px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
-<body></body>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Origen <span>&</span> Grano</h1>
+                <p>El arte de la extracción perfecta</p>
+            </div>
+            <nav>
+                <a href="#">INICIO</a>
+                <a href="#">GUÍAS DE MÉTODOS</a>
+                <a href="#">RESEÑAS</a>
+                <a href="#">CURSOS</a>
+                <a href="#">CONTACTO</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h2>Descubre el Mundo del Café de Especialidad</h2>
+            <p>Desde la finca hasta tu taza: técnicas, ciencia y pasión.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content">
+            <section>
+                <article class="post">
+                    <img src="https://images.unsplash.com/photo-1444418185997-1145401101e0?auto=format&fit=crop&q=80&w=1000" alt="Métodos de extracción" class="post-img">
+                    <div class="post-body">
+                        <span class="category">Guías Técnicas</span>
+                        <h2 class="post-title">V60: El secreto para una taza limpia y aromática</h2>
+                        <p class="post-meta">Publicado el 12 de Octubre, 2023 por Admin</p>
+                        <p>La técnica del vertido o pour-over es fundamental para resaltar las notas cítricas y florales de los granos lavados. En este artículo exploramos el ratio ideal y la temperatura del agua...</p>
+                        <a href="#" class="btn">LEER MÁS</a>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=1000" alt="Latte Art" class="post-img">
+                    <div class="post-body">
+                        <span class="category">Barismo</span>
+                        <h2 class="post-title">Dominando la textura de la leche para Latte Art</h2>
+                        <p class="post-meta">Publicado el 08 de Octubre, 2023 por Admin</p>
+                        <p>No se trata solo de dibujar corazones. La microespuma perfecta requiere precisión en la posición de la lanceta y el control térmico. Aprende a vaporizar como un profesional...</p>
+                        <a href="#" class="btn">LEER MÁS</a>
+                    </div>
+                </article>
+            </section>
+
+            <aside>
+                <div class="widget">
+                    <h3>Sobre el Blog</h3>
+                    <p>Somos apasionados del café dedicados a compartir conocimiento sobre la cultura cafetera global. Calidad sobre cantidad.</p>
+                </div>
+
+                <div class="widget">
+                    <h3>Categorías</h3>
+                    <ul style="list-style: none; color: var(--gris); font-size: 0.9rem;">
+                        <li style="margin-bottom: 10px;">> Métodos de Extracción</li>
+                        <li style="margin-bottom: 10px;">> Tostado de Grano</li>
+                        <li style="margin-bottom: 10px;">> Reseñas de Cafeteras</li>
+                        <li style="margin-bottom: 10px;">> Orígenes y Fincas</li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>Próximo Curso</h3>
+                    <div class="course-card">
+                        <h4>Catación Nivel 1</h4>
+                        <p><small>Fecha: 15 de Noviembre</small></p>
+                        <p><small>Modalidad: Presencial</small></p>
+                        <a href="#" style="color: var(--secundario); font-weight: bold; font-size: 0.8rem;">MÁS INFO</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Origen & Grano. Todos los derechos reservados.</p>
+            <div style="margin-top: 20px;">
+                <small>Instagram | Twitter | Facebook</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
 
 </html>
